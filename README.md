@@ -14,6 +14,12 @@ in: [ 1.  1.]  ->  out: 0 (0.00486784050737)
 $
 ```
 
+## Usage
+- Approximate XOR
+```
+$ ./train.py path_to_pickle_file_to_save_parameters
+```
+
 ## Author
 [tuz358](https://github.com/tuz358)
 
