@@ -59,7 +59,7 @@ class Sigmoid(object):
 		pass
 
 class Mse(object):
-	''' Mean Squared Error'''
+	''' Mean Squared Error '''
 	def __init__(self):
 		self.loss = None
 		self.y = None
