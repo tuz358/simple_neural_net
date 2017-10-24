@@ -3,8 +3,8 @@
 
 import nnet
 import numpy as np
-from nnet import Affine
-from nnet import ReLu
+from nnet import Linear
+from nnet import ReLU
 from nnet import Sigmoid
 from collections import OrderedDict
 import pickle
@@ -16,9 +16,9 @@ class XORNNet(object):
 		self.params = params
 
 		self.layers = OrderedDict()
-		self.layers['Affine1'] = Affine(W=self.params['W1'], b=self.params['b1'])
-		self.layers['ReLu'] = ReLu()
-		self.layers['Affine2'] = Affine(W=self.params['W2'], b=self.params['b2'])
+		self.layers['Linear1'] = Linear(W=self.params['W1'], b=self.params['b1'])
+		self.layers['ReLU'] = ReLU()
+		self.layers['Linear2'] = Linear(W=self.params['W2'], b=self.params['b2'])
 		self.layers['Sigmoid'] = Sigmoid()
 
 	def predict(self, x):
