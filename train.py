@@ -3,8 +3,8 @@
 
 import nnet
 import numpy as np
-from nnet import Affine
-from nnet import ReLu
+from nnet import Linear
+from nnet import ReLU
 from nnet import Sigmoid
 from nnet import Mse
 from collections import OrderedDict
@@ -21,9 +21,9 @@ class SimpleNNet(object):
 		self.params['b2'] = np.zeros((1, 1))
 
 		self.layers = OrderedDict()
-		self.layers['Affine1'] = Affine(W=self.params['W1'], b=self.params['b1'])
-		self.layers['ReLu'] = ReLu()
-		self.layers['Affine2'] = Affine(W=self.params['W2'], b=self.params['b2'])
+		self.layers['Linear1'] = Linear(W=self.params['W1'], b=self.params['b1'])
+		self.layers['ReLU'] = ReLU()
+		self.layers['Linear2'] = Linear(W=self.params['W2'], b=self.params['b2'])
 		self.layers['Sigmoid'] = Sigmoid()
 		self.lastlayer = Mse()
 
@@ -51,10 +51,10 @@ class SimpleNNet(object):
 			layer.fit(lr=0.01) # lr : learning rate
 
 	def save_model(self):
-		self.params['W1'] = self.layers['Affine1'].W
-		self.params['b1'] = self.layers['Affine1'].b
-		self.params['W2'] = self.layers['Affine2'].W
-		self.params['b2'] = self.layers['Affine2'].b
+		self.params['W1'] = self.layers['Linear1'].W
+		self.params['b1'] = self.layers['Linear1'].b
+		self.params['W2'] = self.layers['Linear2'].W
+		self.params['b2'] = self.layers['Linear2'].b
 		pickle.dump(self.params, open(sys.argv[1], 'wb'), protocol=2)
 
 if __name__=='__main__':
