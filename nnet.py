@@ -3,7 +3,7 @@
 import numpy as np
 
 
-class Affine(object):
+class Linear(object):
 	def __init__(self, W, b):
 		self.W = W
 		self.b = b
@@ -25,7 +25,7 @@ class Affine(object):
 		self.W -= lr * self.dW
 		self.b -= lr * self.db
 
-class ReLu(object):
+class ReLU(object):
 	def __init__(self):
 		self.mask = None
 
